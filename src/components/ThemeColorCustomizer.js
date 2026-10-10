@@ -3,6 +3,33 @@ import { useState, useEffect } from 'react';
 
 const PRESETS = [
   {
+    id: 'piano-black',
+    name: 'Polished Piano Black (Obsidian Sheen)',
+    iconColor: '#38bdf8',
+    subColor: '#000000',
+    vars: {
+      '--bg-primary': '#000000',
+      '--bg-surface': 'rgba(4, 4, 6, 0.94)',
+      '--bg-elevated': 'rgba(12, 12, 16, 0.96)',
+      '--bg-hover': 'rgba(24, 24, 32, 0.98)',
+      '--text-primary': '#ffffff',
+      '--text-secondary': '#d1d5db',
+      '--text-muted': '#9ca3af',
+      '--accent-1': '#ef8a62',
+      '--accent-2': '#38bdf8',
+      '--accent-3': '#fbbf24',
+      '--accent-1-dim': 'rgba(239, 138, 98, 0.15)',
+      '--accent-2-dim': 'rgba(56, 189, 248, 0.15)',
+      '--accent-3-dim': 'rgba(251, 191, 36, 0.15)',
+      '--border-color': 'rgba(255, 255, 255, 0.14)',
+      '--border-subtle': 'rgba(255, 255, 255, 0.07)',
+      '--code-bg': '#000000',
+      '--shadow-sm': '0 4px 14px rgba(0, 0, 0, 0.9)',
+      '--shadow-md': '0 12px 36px rgba(0, 0, 0, 0.95)',
+      '--shadow-lg': '0 24px 60px rgba(0, 0, 0, 0.98)',
+    }
+  },
+  {
     id: 'red-black',
     name: 'Red & Black (Cyber Lab)',
     iconColor: '#e11d48',
@@ -129,12 +156,12 @@ const PRESETS = [
 
 export default function ThemeColorCustomizer() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activePreset, setActivePreset] = useState('midnight-scholar');
+  const [activePreset, setActivePreset] = useState('piano-black');
   const [customColors, setCustomColors] = useState({
-    bgPrimary: '#1c1917',
-    bgSurface: '#292524',
+    bgPrimary: '#030305',
+    bgSurface: '#0c0c10',
     accent1: '#ef8a62',
-    textPrimary: '#e7e5e4',
+    textPrimary: '#f8fafc',
   });
 
   // Apply colors to :root CSS variables
@@ -206,7 +233,7 @@ export default function ThemeColorCustomizer() {
   };
 
   const resetToDefault = () => {
-    const defaultPreset = PRESETS[1]; // Midnight Scholar
+    const defaultPreset = PRESETS[0]; // Polished Piano Black
     selectPreset(defaultPreset);
     document.documentElement.removeAttribute('style');
     try {

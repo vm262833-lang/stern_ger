@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { MathBlock, MathInline } from '@/components/MathBlock';
 import QuantumCalculators from '@/components/QuantumCalculators';
+import ResearchStudio from '@/components/ResearchStudio';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
 export default function HomePage() {
@@ -487,7 +488,7 @@ export default function HomePage() {
                 Run the full 3D Stern-Gerlach apparatus simulation directly in your browser without local frame embedding. Adjust magnetic gradients, rotate collimators, and inspect atomic beam splitting in real time.
               </p>
               <a
-                href="https://play.unity.com/api/v1/games/game/1ed6cc16-c0fe-43f6-a5d9-9b5d7d247a3c/build/latest/frame"
+                href={process.env.NEXT_PUBLIC_UNITY_SIMULATION_URL || process.env.NEXT_PUBLIC_UNITY_API_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="sim-launch-link"
@@ -515,6 +516,8 @@ export default function HomePage() {
           </p>
 
           <QuantumCalculators />
+
+          <ResearchStudio />
         </div>
       </section>
 
